@@ -2,7 +2,9 @@
 def uppercase(str):
     for i in str:
         if ord(i) >= 97 and ord(i) <= 122:
-            print("{:c}".format(ord(i) - 32), end="")
-        else:
-            print("{}".format(i), end="")
+            i = chr(ord(i) - 32)
+        print("{}".format(i), end="")
     print("")
+
+uppercase("best")
+uppercase("Best School 98 Battery street")
