@@ -1,3 +1,5 @@
 main.py
 *.out
 .vscode
+[a-z]*.c
+[a-z]*.py
