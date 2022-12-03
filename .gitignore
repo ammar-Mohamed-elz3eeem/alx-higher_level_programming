@@ -3,3 +3,5 @@ main.py
 .vscode
 [a-z]*.c
 [a-z]*.py
+[a-z]*.pyc
+__pycache__/
