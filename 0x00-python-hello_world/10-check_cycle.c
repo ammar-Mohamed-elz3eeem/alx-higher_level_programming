@@ -27,25 +27,3 @@ int check_cycle(listint_t *list)
 
 	return (0);
 }
-
-//  5         35          15       20       25        30       35
-
-//  5         35          15       20       25        30       35
-
-// next 	= 35
-// current  = 5
-
-// next = 15
-// current  = 5
-
-// next = 20
-// current  = 5
-
-// next = 25
-// current  = 5
-
-// next = 30
-// current  = 5
-
-// next = 35
-// current  = 5
