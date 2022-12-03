@@ -20,5 +20,5 @@ if __name__ == "__main__":
         res = mul(a, b)
     else:
         res = div(a, b)
-    
+
     print("{} {:s} {} = {}".format(argv[0], op, argv[2], res))
