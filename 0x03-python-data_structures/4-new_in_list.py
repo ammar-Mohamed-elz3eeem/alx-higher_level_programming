@@ -3,12 +3,6 @@ def new_in_list(my_list, idx, element):
     length = len(my_list)
     newl = [0] * length
 
-    if idx < 0:
-        return None
-
-    if idx >= length:
-        return None
-
     for i in range(0, length):
         if i == idx:
             newl[i] = element
