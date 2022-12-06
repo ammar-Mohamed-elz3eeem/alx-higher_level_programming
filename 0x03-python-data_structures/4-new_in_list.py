@@ -1,15 +1,17 @@
 #!/usr/bin/python3
 def new_in_list(my_list, idx, element):
-    newl = []
+    length = len(my_list)
+    newl = [0] * length
 
     if idx < 0:
         return None
 
-    if idx >= len(my_list):
+    if idx >= length:
         return None
 
-    for i in range(0, len(my_list)):
+    for i in range(0, length):
         if i == idx:
-            newl[idx] = element
+            newl[i] = element
         else:
             newl[i] = my_list[i]
+    return newl
