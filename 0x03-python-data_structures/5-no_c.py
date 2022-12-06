@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-def no_c(str):
+def no_c(my_string):
     newstr = ""
     
     if str == None:
@@ -9,8 +9,3 @@ def no_c(str):
             continue
         newstr += i
     return newstr
-
-print(no_c("Best School"))
-print(no_c("Chicago"))
-print(no_c("C is fun!"))
-print(no_c(""))
