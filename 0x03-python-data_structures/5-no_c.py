@@ -4,7 +4,8 @@ def no_c(my_string):
     
     if str == None:
         return None
-    for i in str:
+    
+    for i in my_string:
         if i == 'c' or i == 'C':
             continue
         newstr += i
