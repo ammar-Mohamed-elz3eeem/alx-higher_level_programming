@@ -10,11 +10,3 @@ def print_matrix_integer(matrix=[[]]):
             state = True
     if not state:
         print("")
-
-matrix = [
-    [1, 2, 3],
-    [1, 2, 3]
-]
-print_matrix_integer(matrix)
-print("--")
-print_matrix_integer()
