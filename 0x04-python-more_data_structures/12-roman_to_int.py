@@ -5,7 +5,7 @@ def roman_to_int(roman_string):
     number = 0
     idx = 0
     
-    if (roman_string is not str):
+    if (not isinstance(roman_string, str)):
         return 0
 
     while idx in range(0, len(roman_string)):
@@ -18,3 +18,4 @@ def roman_to_int(roman_string):
             number += romans[roman_string[idx]]
         idx += 1
     return number
+print(roman_to_int)
