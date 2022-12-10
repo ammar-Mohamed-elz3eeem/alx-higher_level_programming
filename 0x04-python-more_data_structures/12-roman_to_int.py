@@ -18,4 +18,3 @@ def roman_to_int(roman_string):
             number += romans[roman_string[idx]]
         idx += 1
     return number
-print(roman_to_int)
