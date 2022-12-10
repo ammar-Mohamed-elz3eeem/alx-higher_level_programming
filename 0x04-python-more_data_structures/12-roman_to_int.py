@@ -4,7 +4,7 @@ def roman_to_int(roman_string):
               "L": 50, "X": 10, "V": 5, "I": 1}
     number = 0
     idx = 0
-    
+
     if (not isinstance(roman_string, str)):
         return 0
 
