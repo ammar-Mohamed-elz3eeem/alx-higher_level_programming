@@ -19,11 +19,11 @@ int check_cycle(listint_t *list)
 		next = current->next;
 		while (next->next != NULL)
 		{
-			if (next == current->next)
-			{
+			if (next == current)
 				return (1);
-			}
 			next = next->next;
+			printf("next->n = %d\n", next->n);
+			printf("current->n = %d\n", current->n);
 		}
 		current = current->next;
 	}
