@@ -1,0 +1,52 @@
+#!/usr/bin/python3
+"""
+Define Square Class with private attribute size
+with some verfications that size attribute is correct
+"""
+
+
+class Square:
+    """ Square Class is used to create
+    squares with size == self.size """
+
+    def __init__(self, s=0, position=(0, 0)):
+        self.size = s
+        self.position = position
+
+    @property
+    def size(self):
+        return self.__size
+
+    @size.setter
+    def size(self, value):
+        if isinstance(value, int):
+            if (value < 0):
+                raise ValueError("size must be >= 0")
+            self.__size = value
+        else:
+            raise TypeError("size must be an integer")
+
+    """Function to get area of Square object"""
+    def area(self):
+        return self.__size * self.__size
+
+    """my_print: prints the square into console"""
+    def my_print(self):
+        [print("") for j in range(0, self.__position[1])]
+        for i1 in range(0, self.__size):
+            [print(" ", end="") for j in range(0, self.__position[0])]
+            [print("#", end="") for i2 in range(0, self.__size)]
+            print("")
+        if self.__size == 0:
+            print("")
+
+    """position: sets the position of the square"""
+    @property
+    def position(self):
+        return self.__position
+
+    @position.setter
+    def position(self, new_pos):
+        if len(new_pos) != 2 or not isinstance(new_pos, tuple):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = new_pos
