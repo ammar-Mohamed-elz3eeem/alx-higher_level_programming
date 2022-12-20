@@ -35,3 +35,5 @@ class Square:
             for i1 in range(0, self.__size):
                 print("#", end="")
             print("")
+        if self.__size == 0:
+            print("")
