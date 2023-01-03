@@ -56,6 +56,6 @@ class Rectangle:
             if i < self.__height - 1:
                 newstr += "\n"
         return newstr
-    
+
     def __repr__(self):
         return f"{self.__class__.__name__}({self.__width}, {self.__height})"
