@@ -1,0 +1,25 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation("My name is Ammar. I work as a software Engineer. I heard wisdom one day said: \"You have to believe in yourself you can do magic\"")
+My name is Ammar.
+<BLANKLINE>
+I work as a software Engineer.
+<BLANKLINE>
+I heard wisdom one day said:
+<BLANKLINE>
+"You have to believe in yourself you can do magic"
+>>> text_indentation("My name is ammar.")
+My name is ammar.
+
+>>> try:
+...     text_indentation(True)
+... except Exception as e:
+...     print(e)
+text must be a string
+
+>>> try:
+...     text_indentation()
+... except:
+...     print("Invalid number of arguments")
+...     print("Usage: text_indentation(str)")
+Invalid number of arguments
+Usage: text_indentation(str)
