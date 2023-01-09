@@ -1,46 +1,89 @@
+Test for 1-my_list.py
+-------------------------------------------
+
+case 0: import
 >>> MyList = __import__('1-my_list').MyList
->>> li = MyList([1,4,5,6,0,1,2])
+>>>
+-------------------------------------------
+
+case 1: normal list of numbers
+>>> li = MyList()
+>>> li.append(1)
+>>> li.append(4)
+>>> li.append(2)
+>>> li.append(3)
+>>> li.append(5)
+>>> print(li)
+[1, 4, 2, 3, 5]
 >>> li.print_sorted()
-[0, 1, 1, 2, 4, 5, 6]
->>> li = MyList([])
->>> li.print_sorted()
-[]
+[1, 2, 3, 4, 5]
+>>> print(li)
+[1, 4, 2, 3, 5]
+>>>
+
+---------------------------------------------
+
+case 2: pass None Type
+
 >>> try:
 ...     li = MyList(None)
 ...     li.print_sorted()
 ... except:
 ...     print("Error: NoneType Exceptions")
 Error: NoneType Exceptions
+>>>
+
+---------------------------------------------
+
+case 3: pass list to constructor with negative numbers
 >>> try:
 ...     li = MyList([-1, -90, -25])
 ...     li.print_sorted()
 ... except:
 ...     print("Error: NoneType Exceptions")
 [-90, -25, -1]
+>>>
+
+---------------------------------------------
+
+case 4: pass list to constructor with negative numbers only 2 numbers
 >>> try:
 ...     li = MyList([-1, -25])
 ...     li.print_sorted()
 ... except:
 ...     print("Error: NoneType Exceptions")
 [-25, -1]
+>>>
 
+---------------------------------------------
+
+case 5: pass list to constructor with negative numbers but already sorted
 >>> try:
 ...     li = MyList([-25, -1])
 ...     li.print_sorted()
 ... except:
 ...     print("Error: NoneType Exceptions")
 [-25, -1]
+>>>
 
+---------------------------------------------
+
+case 6: pass list but with strings and numbers
 >>> try:
 ...     li = MyList(["Name", "Age", "Address", 5, 25])
 ...     li.print_sorted()
 ... except Exception as e:
 ...     print("can't order strings only integers")
 can't order strings only integers
+>>>
 
+---------------------------------------------
+
+case 7: pass list but with strings
 >>> try:
 ...     li = MyList(["Name", "Age", "Address"])
 ...     li.print_sorted()
 ... except Exception as e:
 ...     print("can't order strings only integers")
 ['Address', 'Age', 'Name']
+>>>
