@@ -1,65 +1,150 @@
 Test for 7-base_geometry.py
 -------------------------------------------
 
-case 0: import
->>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
->>> geo = BaseGeometry()
->>>
+Using ``BaseGeometry``
+----------------------
+
+case 0: Importing class from the module:
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+	>>> geo = BaseGeometry()
+	>>>
+
 -------------------------------------------
 
 case 1: integer validator with value is integer
->>> geo.integer_validator("number", 15)
+	>>> geo.integer_validator("number", 15)
 
 -------------------------------------------
 
 case 2: integer validator with value is negative number
->>> try: 
-...     geo.integer_validator("time", -15)
-... except Exception as e:
-...     print("[{}]: {}".format(e.__class__.__name__, e))
-[ValueError]: time must be greater than 0
+	>>> try: 
+	...     geo.integer_validator("time", -15)
+	... except Exception as e:
+	...     print("[{}]: {}".format(e.__class__.__name__, e))
+	[ValueError]: time must be greater than 0
 
 -------------------------------------------
 
 case 3: integer validator with value is 0
->>> try: 
-...     geo.integer_validator("time", 0)
-... except Exception as e:
-...     print("[{}]: {}".format(e.__class__.__name__, e))
-[ValueError]: time must be greater than 0
+	>>> try: 
+	...     geo.integer_validator("time", 0)
+	... except Exception as e:
+	...     print("[{}]: {}".format(e.__class__.__name__, e))
+	[ValueError]: time must be greater than 0
 
 -------------------------------------------
 
 case 4: integer validator with value is float number
->>> try: 
-...     geo.integer_validator("time", 1.2)
-... except Exception as e:
-...     print("[{}]: {}".format(e.__class__.__name__, e))
-[TypeError]: time must be an integer
+	>>> try: 
+	...     geo.integer_validator("time", 1.2)
+	... except Exception as e:
+	...     print("[{}]: {}".format(e.__class__.__name__, e))
+	[TypeError]: time must be an integer
 
 -------------------------------------------
 
 case 5: integer validator with value is string
->>> try: 
-...     geo.integer_validator("time", "int")
-... except Exception as e:
-...     print("[{}]: {}".format(e.__class__.__name__, e))
-[TypeError]: time must be an integer
+	>>> try: 
+	...     geo.integer_validator("time", "int")
+	... except Exception as e:
+	...     print("[{}]: {}".format(e.__class__.__name__, e))
+	[TypeError]: time must be an integer
 
 -------------------------------------------
 
 case 6: integer validator with value is boolean
->>> try: 
-...     geo.integer_validator("time", True)
-... except Exception as e:
-...     print("[{}]: {}".format(e.__class__.__name__, e))
-[TypeError]: time must be an integer
+	>>> try: 
+	...     geo.integer_validator("time", True)
+	... except Exception as e:
+	...     print("[{}]: {}".format(e.__class__.__name__, e))
+	[TypeError]: time must be an integer
 
 -------------------------------------------
 
 case 7: integer validator with only one parameter
->>> try: 
-...     geo.integer_validator("time")
-... except Exception as e:
-...     print("[{}]: {}".format(e.__class__.__name__, e))
-[TypeError]: integer_validator() missing 1 required positional argument: 'value'
+	>>> try: 
+	...     geo.integer_validator("time")
+	... except Exception as e:
+	...     print("[{}]: {}".format(e.__class__.__name__, e))
+	[TypeError]: integer_validator() missing 1 required positional argument: 'value'
+
+-------------------------------------------
+
+case 8: trying to call area method
+	>>> try: 
+	...     geo.area()
+	... except Exception as e:
+	...     print("[{}]: {}".format(e.__class__.__name__, e))
+	[Exception]: area() is not implemented
+
+-------------------------------------------
+
+case 9: integer_validator with stringify number
+	>>> try: 
+	...     geo.integer_validator("time", "2024")
+	... except Exception as e:
+	...     print("[{}]: {}".format(e.__class__.__name__, e))
+	[TypeError]: time must be an integer
+
+-------------------------------------------
+
+case 10: integer_validator with no arguments
+	>>> try: 
+	...     geo.integer_validator()
+	... except Exception as e:
+	...     print("[{}]: {}".format(e.__class__.__name__, e))
+	[TypeError]: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+-------------------------------------------
+
+case 11: integer_validator with three args
+	>>> try: 
+	...     geo.integer_validator(12,3,25)
+	... except Exception as e:
+	...     print("[{}]: {}".format(e.__class__.__name__, e))
+	[TypeError]: integer_validator() takes 3 positional arguments but 4 were given
+
+-------------------------------------------
+
+case 12: integer_validator with no arguments
+	>>> try: 
+	...     geo.integer_validator("time", (2024,2))
+	... except Exception as e:
+	...     print("[{}]: {}".format(e.__class__.__name__, e))
+	[TypeError]: time must be an integer
+
+-------------------------------------------
+
+case 13: passing argument to area method
+	>>> try: 
+	...     geo.area(2)
+	... except Exception as e:
+	...     print("[{}]: {}".format(e.__class__.__name__, e))
+	[TypeError]: area() takes 1 positional argument but 2 were given
+
+-------------------------------------------
+
+case 14: integer_validator with list
+	>>> try: 
+	...     geo.integer_validator("time", [4])
+	... except Exception as e:
+	...     print("[{}]: {}".format(e.__class__.__name__, e))
+	[TypeError]: time must be an integer
+
+-------------------------------------------
+
+case 15: integer_validator with dict
+	>>> try: 
+	...     geo.integer_validator("time", {4: 51})
+	... except Exception as e:
+	...     print("[{}]: {}".format(e.__class__.__name__, e))
+	[TypeError]: time must be an integer
+
+-------------------------------------------
+
+case 16: integer_validator with NoneType
+	>>> try: 
+	...     geo.integer_validator("time", None)
+	... except Exception as e:
+	...     print("[{}]: {}".format(e.__class__.__name__, e))
+	[TypeError]: time must be an integer
