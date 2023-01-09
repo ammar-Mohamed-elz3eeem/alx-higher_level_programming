@@ -87,3 +87,22 @@ case 7: pass list but with strings
 ...     print("can't order strings only integers")
 ['Address', 'Age', 'Name']
 >>>
+
+---------------------------------------------
+
+case 8: run print_sorted on parent object
+>>> try:
+...     li = [5, 67, 1, -2, 51, 3]
+...     li.print_sorted()
+... except Exception as e:
+...     print(e)
+'list' object has no attribute 'print_sorted'
+>>>
+
+---------------------------------------------
+
+case 9: same numbers to be sorted
+>>> li = MyList([5, 5, 5, 5, 5])
+>>> li.print_sorted()
+[5, 5, 5, 5, 5]
+>>>
