@@ -5,3 +5,15 @@
 >>> li = MyList([])
 >>> li.print_sorted()
 []
+>>> try:
+...     li = MyList(None)
+...     li.print_sorted()
+... except:
+...     print("Error: NoneType Exceptions")
+Error: NoneType Exceptions
+>>> try:
+...     li = MyList([-1, -90, -25])
+...     li.print_sorted()
+... except:
+...     print("Error: NoneType Exceptions")
+[-90, -25, -1]
