@@ -1,4 +1,3 @@
-#!/usr/bin/python
 #!/usr/bin/python3
 """
 BaseGeometry module: class BaseGeometry implementation
