@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-""" 
-module that contains a function to check if the type of 
-the input is same as the type specified in function or not 
+"""
+module that contains a function to check if the type of
+the input is same as the type specified in function or not
 """
 
 
