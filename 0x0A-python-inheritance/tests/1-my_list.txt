@@ -17,3 +17,16 @@ Error: NoneType Exceptions
 ... except:
 ...     print("Error: NoneType Exceptions")
 [-90, -25, -1]
+>>> try:
+...     li = MyList([-1, -25])
+...     li.print_sorted()
+... except:
+...     print("Error: NoneType Exceptions")
+[-25, -1]
+
+>>> try:
+...     li = MyList([-25, -1])
+...     li.print_sorted()
+... except:
+...     print("Error: NoneType Exceptions")
+[-25, -1]
