@@ -6,8 +6,11 @@ Using ``BaseGeometry``
 
 case 0: Importing class from the module:
 	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
-	>>> geo = BaseGeometry()
-	>>>
+
+-------------------------------------------
+
+case 0: initilize the class BaseGeometry
+>>> geo = BaseGeometry()
 
 -------------------------------------------
 
@@ -106,7 +109,7 @@ case 11: integer_validator with three args
 
 -------------------------------------------
 
-case 12: integer_validator with no arguments
+case 12: integer_validator with tuple
 	>>> try: 
 	...     geo.integer_validator("time", (2024,2))
 	... except Exception as e:
@@ -148,3 +151,11 @@ case 16: integer_validator with NoneType
 	... except Exception as e:
 	...     print("[{}]: {}".format(e.__class__.__name__, e))
 	[TypeError]: time must be an integer
+
+-------------------------------------------
+
+case 16: integer_validator with int like tuple
+	>>> try: 
+	...     geo.integer_validator("time", (50))
+	... except Exception as e:
+	...     print("[{}]: {}".format(e.__class__.__name__, e))
