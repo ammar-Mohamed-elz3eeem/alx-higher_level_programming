@@ -1,6 +1,6 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """
-    MyList Class: extend functionality of list object
+    module that contains an extended version of the list object class
 """
 
 
