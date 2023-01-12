@@ -3,5 +3,6 @@ main.py
 .vscode
 [a-z]*.c
 [a-z]*.py
+[a-z]*.txt
 [a-z]*.pyc
 __pycache__/
