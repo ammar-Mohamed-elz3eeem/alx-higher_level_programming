@@ -4,5 +4,6 @@ main.py
 [a-z]*.c
 [a-z]*.py
 [a-z]*.txt
+[a-z]*.json
 [a-z]*.pyc
 __pycache__/
