@@ -17,8 +17,6 @@ def pascal_triangle(n):
 
     if n <= 0:
         return []
-    if n == 1:
-        matrix.append([1])
 
     matrix = [[1]]
 
