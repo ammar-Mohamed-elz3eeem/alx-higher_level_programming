@@ -76,10 +76,10 @@ class Rectangle(Base):
             [print(" ", end="") for j in range(self.__x)]
             [print("#", end="") for j in range(self.__width)]
             print("")
-            
+
     def update(self, *args, **kwargs):
         keys = ["id", "width", "height", "x", "y"]
-        
+
         for idx in range(len(args)):
             setattr(self, keys[idx], args[idx])
         if len(args) <= 0 or args is None:
