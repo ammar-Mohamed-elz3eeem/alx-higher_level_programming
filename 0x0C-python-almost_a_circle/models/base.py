@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import json
 import csv
+import turtle
 """
 This class will be the “base” of all other
 classes in this project. The goal of it
@@ -90,3 +91,35 @@ class Base:
                 return [cls.create(**dic) for dic in list_objs]
         except IOError:
             return []
+    @staticmethod
+    def draw(list_rects, list_sqs):
+        drawer = turtle.Turtle()
+        drawer.pensize(3)
+        drawer.shape("turtle")
+        drawer.pensize(5)
+        drawer.speed(1)
+
+        drawer.color("#0f0f0f")
+        for rect in list_rects:
+            drawer.showturtle()
+            drawer.up()
+            drawer.goto(rect.x, rect.y)
+            drawer.down()
+            for i in range(2):
+                drawer.forward(rect.width)
+                drawer.left(90)
+                drawer.forward(rect.height)
+                drawer.left(90)
+            drawer.hideturtle()
+
+        drawer.color("#ff0000")
+        for sq in list_sqs:
+            drawer.showturtle()
+            drawer.up()
+            drawer.goto(sq.x, sq.y)
+            drawer.down()
+            for i in range(4):
+                drawer.forward(sq.size)
+                drawer.left(90)
+        turtle.done()
+            
