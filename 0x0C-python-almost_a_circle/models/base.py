@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import json
+import csv
 """
 This class will be the “base” of all other
 classes in this project. The goal of it
@@ -59,5 +60,33 @@ class Base:
             with open(cls.__name__ + ".json", mode="r") as fd:
                 data = Base.from_json_string(fd.read())
                 return list(map(lambda obj: cls.create(**obj), data))
+        except IOError:
+            return []
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        fields = None
+        with open(cls.__name__ + ".csv", mode="w", encoding="UTF-8") as fd:
+            if list_objs is None or len(list_objs) <= 0:
+                fd.write("[]")
+            else:
+                if (cls.__name__ == "Rectangle"):
+                    fields = ["id", "width", "height", "x", "y"]
+                elif (cls.__name__ == "Square"):
+                    fields = ["id", "size", "x", "y"]
+                csvWriter = csv.DictWriter(fd, fields)
+                for obj in list_objs:
+                    csvWriter.writerow(obj.to_dictionary())
+    @classmethod
+    def load_from_file_csv(cls):
+        fields = None
+        try:
+            with open(cls.__name__ + ".csv", mode="r", encoding="UTF-8") as fd:
+                if (cls.__name__ == "Rectangle"):
+                    fields = ["id", "width", "height", "x", "y"]
+                elif (cls.__name__ == "Square"):
+                    fields = ["id", "size", "x", "y"]
+                list_objs = csv.DictReader(fd, fields)
+                list_objs = [dict([k, int(v)] for (k , v) in obj.items()) for obj in list_objs]
+                return [cls.create(**dic) for dic in list_objs]
         except IOError:
             return []
