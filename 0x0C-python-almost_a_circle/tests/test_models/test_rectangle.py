@@ -11,6 +11,7 @@ class TestRectangle(unittest.TestCase):
     def setUpClass(cls):
         cls.rect2 = Rectangle(25, 35, 15, 20, 1205)
         cls.rect3 = Rectangle(12, 12, 12, 12)
+        Rectangle.save_to_file([cls.rect2, cls.rect3])
 
     def test_empty_rect(self):
         with self.assertRaises(TypeError):
@@ -23,7 +24,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect1.height, 5)
         self.assertEqual(rect1.x, 0)
         self.assertEqual(rect1.y, 0)
-        self.assertEqual(rect1.id, 5)
+        self.assertEqual(rect1.id, 13)
 
     def test_rect_display(self):
         rect1 = Rectangle(1, 1)
@@ -370,6 +371,59 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.height, 5)
         self.assertEqual(rect.x, 0)
         self.assertEqual(rect.y, 0)
+
+    def test_rect_to_dictionary(self):
+        dictionary = self.rect2.to_dictionary()
+        self.assertDictEqual(dictionary, {
+            "id": self.rect2.id,
+            "width": self.rect2.width,
+            "height": self.rect2.height,
+            "x": self.rect2.x,
+            "y": self.rect2.y
+		})
+
+    def test_rect_to_dictionary(self):
+        dictionary = self.rect3.to_dictionary()
+        self.assertDictEqual(dictionary, {
+            "id": self.rect3.id,
+            "width": self.rect3.width,
+            "height": self.rect3.height,
+            "x": self.rect3.x,
+            "y": self.rect3.y
+		})
+
+    def test_create_rect_from_dictionary(self):
+        rect4 = Rectangle.create(**(self.rect3.to_dictionary()))
+        self.assertEqual(rect4.id, self.rect3.id)
+        self.assertEqual(rect4.width, self.rect3.width)
+        self.assertEqual(rect4.height, self.rect3.height)
+        self.assertEqual(rect4.x, self.rect3.x)
+        self.assertEqual(rect4.y, self.rect3.y)
+        self.assertEqual(rect4.area(), self.rect3.area())
+
+    def test_create_rect_from_dictionary(self):
+        r1 = Rectangle(1, 1)
+        rect4 = Rectangle.create(**(r1.to_dictionary()))
+        self.assertEqual(rect4.id, r1.id)
+        self.assertEqual(rect4.width, r1.width)
+        self.assertEqual(rect4.height, r1.height)
+        self.assertEqual(rect4.x, r1.x)
+        self.assertEqual(rect4.y, r1.y)
+        self.assertEqual(rect4.area(), r1.area())
+
+    def test_load_from_file_type(self):
+        self.assertEqual(type(Rectangle.load_from_file()), list)
+
+    def test_load_from_file_len(self):
+        self.assertEqual(len(Rectangle.load_from_file()), 2)
+
+    def test_load_from_file_obj(self):
+        obj_list = Rectangle.load_from_file()
+        self.assertEqual(obj_list[0].width, 25)
+        self.assertEqual(obj_list[0].height, 35)
+        self.assertEqual(obj_list[0].id, 1205)
+        self.assertEqual(obj_list[0].x, 15)
+        self.assertEqual(obj_list[0].y, 20)
 
     @classmethod
     def tearDownClass(cls):
