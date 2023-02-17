@@ -1,4 +1,4 @@
--- lists all genres of the show Dexter
+-- lists all genres that doesn't belong to the show Dexter
 
 SELECT name FROM tv_genres WHERE name NOT IN (
 	SELECT tvg.name FROM tv_genres tvg 
@@ -8,5 +8,5 @@ SELECT name FROM tv_genres WHERE name NOT IN (
 	ON tv_s.id = tv_g_s.show_id
 	WHERE tv_s.title = 'Dexter'
 	ORDER BY tvg.name ASC
-);
+)
 ORDER BY name ASC;
