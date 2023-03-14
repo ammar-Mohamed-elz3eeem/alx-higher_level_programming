@@ -1,4 +1,5 @@
 main.py
+main.js
 *.out
 .vscode
 [a-z]*.c
@@ -7,3 +8,8 @@ main.py
 [a-z]*.json
 [a-z]*.pyc
 __pycache__/
+temperatures.sql
+tvshows.sql
+100-data.js
+101-data.js
+file*
