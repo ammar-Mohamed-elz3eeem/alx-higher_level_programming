@@ -1,12 +1,13 @@
 #!/usr/bin/python3
-import MySQLdb
-import sys
 """
 This is a module to select all states from db in ascending order
 """
 
 
 if __name__ == "__main__":
+    import MySQLdb
+    import sys
+
     db = MySQLdb.connect(host="127.0.0.1",
                          user=sys.argv[1],
                          passwd=sys.argv[2],
