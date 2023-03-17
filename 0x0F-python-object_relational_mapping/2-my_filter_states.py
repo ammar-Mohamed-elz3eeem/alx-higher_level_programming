@@ -16,7 +16,11 @@ if __name__ == "__main__":
                          db=sys.argv[3])
 
     cur = db.cursor()
-    cur.execute("""SELECT * FROM states WHERE name = '{}' ORDER BY id""".format(sys.argv[4]))
+
+    sql = """SELECT * FROM states WHERE
+    name LIKE BINARY '{}' ORDER BY id""".format(sys.argv[4])
+
+    cur.execute(sql)
     data = cur.fetchall()
     [print(row) for row in data]
     cur.close()
