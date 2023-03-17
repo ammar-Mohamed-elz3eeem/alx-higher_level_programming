@@ -17,3 +17,6 @@ if __name__ == "__main__":
     cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
     rows = cur.fetchall()
     [print(row) for row in rows]
+    
+    cur.close()
+    db.close()
