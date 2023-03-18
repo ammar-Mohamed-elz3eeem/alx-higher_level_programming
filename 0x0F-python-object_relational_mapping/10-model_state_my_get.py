@@ -18,7 +18,8 @@ if __name__ == "__main__":
     Base.metadata.create_all(bind=engine)
     Session = sessionmaker(bind=engine)
     sess = Session()
-    state = sess.query(State.id).order_by(State.id).filter(State.name == argv[4]).first()
+    state = sess.query(State.id).order_by(State.id).\
+        filter(State.name == argv[4]).first()
 
     if state is None:
         print("Not found")
