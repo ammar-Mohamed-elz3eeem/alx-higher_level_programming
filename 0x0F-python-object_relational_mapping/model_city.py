@@ -8,6 +8,7 @@ with city table using sqlalchmey ORM
 from model_state import Base, State
 from sqlalchemy import Column, String, Integer, ForeignKey
 
+
 class City(Base):
     """
     City class:
@@ -15,8 +16,7 @@ class City(Base):
     Args:
         Base: This is the Base class that City inherits from it
     """
-    
-    
+
     __tablename__ = "cities"
     id = Column(Integer, primary_key=True, unique=True, nullable=False)
     name = Column(String(128), nullable=False)
