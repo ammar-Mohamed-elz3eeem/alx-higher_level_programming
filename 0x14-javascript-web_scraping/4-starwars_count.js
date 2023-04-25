@@ -7,5 +7,14 @@ request(url, (err, res) => {
     process.exit();
   }
   const data = JSON.parse(res.body);
-  console.log(data.results.filter((val) => val.characters.includes('https://swapi-api.alx-tools.com/api/people/18/')).length);
+  let times = 0;
+  data.results.forEach((val) => {
+    for (let i = 0; i < val.characters.length; i++) {
+      const charId = val.characters[i].split('/')[5];
+      if (charId === '18') {
+        times++;
+      }
+    }
+  });
+  console.log(times);
 });
